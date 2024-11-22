@@ -1,0 +1,14 @@
+{
+  "question1": {
+    "verre_rouge": 0,
+    "verre_rose": 0
+  },
+  "question2": {
+    "rue_droite": 0,
+    "rue_gauche": 0
+  },
+  "question3": {
+    "bfm_tv": 0,
+    "mario_donkey": 0
+  }
+}

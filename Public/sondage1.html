@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sondage 1</title>
+
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>Quel verre choisissez-vous ?</h1>
+        <img src="quest1.jpg" alt="Question 1">
+    </div>
+    <div class="buttons">
+        <button onclick="submitVote('verre_rouge')">Verre Rouge</button>
+        <button onclick="submitVote('verre_rose')">Verre Rose</button>
+    </div>
+    <script>
+        function submitVote(choice) {
+            fetch('/api/vote', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ question: 1, choice: choice })
+            })
+            .then(response => {
+                if (response.ok) alert("Merci pour votre vote !");
+            })
+            .catch(err => console.error('Erreur:', err));
+        }
+    </script>
+    <script>
+        // Fonction pour vérifier la question active
+        function checkCurrentQuestion() {
+            fetch('/api/current_question')
+                .then(response => response.json())
+                .then(data => {
+                    const currentQuestion = data.currentQuestion;
+                    const currentPage = window.location.pathname.split('/').pop(); // Récupérer la page actuelle
+    
+                    // Si la page actuelle ne correspond pas à la question active, rediriger
+                    if (currentPage !== `sondage${currentQuestion}.html`) {
+                        window.location.href = `/sondage${currentQuestion}.html`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Erreur de récupération de la question active :', error);
+                });
+        }
+    
+        // Vérifier la question active toutes les 2 secondes
+        setInterval(checkCurrentQuestion, 2000);  // 2000 ms = 2 secondes
+    </script>
+    
+
+
+</body>
+</html>

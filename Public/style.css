@@ -1,0 +1,50 @@
+
+
+img {
+    max-width: 90%; /* Limiter la largeur à 90% */
+    max-height: 300px; /* Limiter la hauteur à 300px */
+    height: auto; /* Maintenir les proportions */
+    display: block; /* S'assurer que l'image est un bloc */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Ombre optionnelle */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f9f9f9;
+    flex-direction: column; /* Les éléments (image, boutons) s'empilent verticalement */
+    display: flex; /* Activer Flexbox sur le body */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    height: 100vh; /* Faire en sorte que le body occupe toute la hauteur de la fenêtre */
+    margin: 0; /* Supprimer les marges par défaut */
+
+}
+img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+.buttons {
+    margin-top: 20px; /* Espacement entre l'image et les boutons */
+}
+.buttons button {
+    padding: 10px 20px; /* Taille des boutons */
+    margin: 5px; /* Espacement entre les boutons */
+    font-size: 16px; /* Taille du texte */
+    border: none; /* Supprime les bordures par défaut */
+    border-radius: 5px; /* Coins arrondis */
+    background-color: blue; /* Couleur bleu */
+    color: white; /* Texte blanc */
+    cursor: pointer; /* Curseur en mode clic */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Ombre légère */
+}
+button:hover {
+    background-color: red;
+}
+@media (max-width: 768px) {
+    img {
+        max-width: 70%; /* Sur les petits écrans, l'image prend tout l'espace disponible */
+    }
+}
